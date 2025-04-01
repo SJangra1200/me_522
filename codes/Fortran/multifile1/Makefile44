@@ -1,0 +1,11 @@
+OUTPUT.txt: main.exe
+	./main.exe > OUTPUT.txt
+main.exe: sub1.o sub2.o main.o 
+	gfortran sub1.o sub2.o main.o -o main.exe
+sub1.o: sub1.f90
+	gfortran -c sub1.f90
+sub2.o: sub2.f90
+	gfortran -c sub2.f90
+main.o: main.f90
+	gfortran -c main.f90
+
